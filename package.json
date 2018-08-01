@@ -3,14 +3,35 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4"
+    "react-redux": "^5.0.7",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "prebuild": "yarn run ci",
+    "build": "react-app-rewired build",
+    "ci": "yarn run eslint && yarn run flow && cross-env CI=true yarn run test",
+    "test": "react-app-rewired test --env=jsdom",
+    "eject": "react-app-rewired eject",
+    "flow": "cross-env node_modules/.bin/flow check",
+    "eslint": "cross-env node_modules/eslint/bin/eslint.js \"src/**/*.js*\""
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.2.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "flow-bin": "^0.77.0",
+    "react-app-rewired": "^1.5.2",
+    "sass-loader": "^7.1.0"
   }
 }
