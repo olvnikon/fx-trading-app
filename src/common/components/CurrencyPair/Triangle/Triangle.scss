@@ -1,0 +1,21 @@
+$positiveColor: #108010;
+$negativeColor: #fc0017;
+
+@mixin arrowCommon {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.positive {
+  @include arrowCommon;
+  border-color: transparent transparent $positiveColor transparent;
+  border-width: 0 0.3em 1em 0.3em;
+}
+
+.negative {
+  @include arrowCommon;
+  border-color: $negativeColor transparent transparent transparent;
+  border-width: 1em 0.3em 0 0.3em;
+}

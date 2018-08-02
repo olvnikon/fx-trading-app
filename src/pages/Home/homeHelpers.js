@@ -8,8 +8,8 @@ import {
 } from './homeConstants';
 
 const multiplyByRandomValue = (max: number, min: number) =>
-  (value: number): number => Number((value * Math.random() * (min - max) + max).toFixed(5));
-const shouldPairUpdate = (): boolean => Math.random() > PAIR_CHANGE_PROBABILITY;
+  (value: number): number => Number((value * (Math.random() * (min - max) + max)).toFixed(5));
+const shouldPairUpdate = (): boolean => Math.random() < PAIR_CHANGE_PROBABILITY;
 
 const multiplyByRandom = multiplyByRandomValue(MIN_MULTIPLIER, MAX_MULTIPLIER);
 const getPairWithUpdatedRate = pair => ({

@@ -8,6 +8,7 @@ import { selectCurrencyPairs } from './homeSelectors';
 import { updatePairs } from './homeActions';
 import { mapPairs } from './homeHelpers';
 import { REFRESH_TIME } from './homeConstants';
+import styles from './Home.scss';
 
 type ReduxProps = {|
   +currencyPairs: HomeStateType,
@@ -35,10 +36,10 @@ class Home extends PureComponent<Props, {||}> {
   render() {
     const { currencyPairs } = this.props;
     return (
-      <div>
+      <main className={styles.home}>
         { /* eslint-disable-next-line react/no-array-index-key */ }
         {currencyPairs.map((pair, index) => <CurrencyPair key={index} {...pair} />)}
-      </div>
+      </main>
     );
     // In general, using key={index} is a bad practice but we can use it for now
   }
