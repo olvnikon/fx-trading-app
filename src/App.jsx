@@ -1,10 +1,11 @@
 // @flow
 import React from 'react';
-import './App.css';
+import Home from './pages/Home';
+import styles from './App.scss';
 
 const App = () => (
-  <div className="App">
-    Hello
+  <div className={styles.App}>
+    <Home />
   </div>
 );
 
