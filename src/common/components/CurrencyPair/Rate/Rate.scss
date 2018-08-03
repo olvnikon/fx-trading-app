@@ -1,0 +1,144 @@
+@import "../../../styles/variables";
+$rateBackground: #fff;
+$sellRateBackground: #fc0017;
+$sellRateColor: #c70721;
+$buyRateBackground: #82d146;
+$buyRateColor: #698934;
+$rateHeight: 50px;
+$rateBorderWidth: 2px;
+$rateArrowBorderWidth: $rateHeight / 2;
+$rateWidth: 80%;
+$rateActiveBorder: #4fadc5;
+$borderRadius: 5px;
+
+.rate {
+  background-color: $rateBackground;
+  border: $rateBorderWidth solid $currencyBorder;
+  box-sizing: border-box;
+  height: $rateHeight;
+  padding: 0.3em;
+  width: $rateWidth;
+
+  header {
+    font-size: 0.5em;
+    font-weight: 700;
+  }
+
+  main {
+    font-size: 1em;
+  }
+
+  .chunk-2 {
+    font-size: 1.5em;
+  }
+
+  .chunk-3 {
+    vertical-align: top;
+  }
+}
+
+.sellRate {
+  color: $sellRateColor;
+  float: left;
+  position: relative;
+  text-align: left;
+
+  .rate {
+    border-radius: $borderRadius 0 0 $borderRadius;
+    border-right-width: 0;
+    float: left;
+  }
+
+  &:after, &:before {
+    left: $rateWidth;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &:after {
+    border-left-color: $rateBackground;
+    border-width: $rateArrowBorderWidth - $rateBorderWidth;
+    margin-top: -($rateArrowBorderWidth - $rateBorderWidth);
+  }
+
+  &:before {
+    border-left-color: $currencyBorder;
+    border-width: $rateArrowBorderWidth;
+    margin-top: -$rateArrowBorderWidth;
+  }
+
+  &:hover {
+    .rate {
+      background: $sellRateBackground;
+      border: $rateBorderWidth solid $rateActiveBorder;
+      border-right-width: 0;
+      color: $rateBackground;
+    }
+
+    &:after {
+      border-left-color: $sellRateBackground;
+    }
+
+    &:before {
+      border-left-color: $rateActiveBorder;
+    }
+  }
+}
+
+.buyRate {
+  color: $buyRateColor;
+  right: 0;
+  position: relative;
+  text-align: right;
+
+  .rate {
+    border-radius: 0 $borderRadius $borderRadius 0;
+    border-left-width: 0;
+    float: right;
+  }
+
+  &:after, &:before {
+    right: $rateWidth;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &:after {
+    border-right-color: $rateBackground;
+    border-width: $rateArrowBorderWidth - $rateBorderWidth;
+    margin-top: -($rateArrowBorderWidth - $rateBorderWidth);
+  }
+
+  &:before {
+    border-right-color: $currencyBorder;
+    border-width: $rateArrowBorderWidth;
+    margin-top: -$rateArrowBorderWidth;
+  }
+
+  &:hover {
+    .rate {
+      background: $buyRateBackground;
+      border: $rateBorderWidth solid $rateActiveBorder;
+      border-left-width: 0;
+      color: $rateBackground;
+    }
+
+    &:after {
+      border-right-color: $buyRateBackground;
+    }
+
+    &:before {
+      border-right-color: $rateActiveBorder;
+    }
+  }
+}

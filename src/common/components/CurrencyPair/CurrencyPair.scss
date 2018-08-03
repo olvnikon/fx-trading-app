@@ -1,3 +1,4 @@
+@import "../../styles/variables";
 $headerColor: #5b5b5b;
 
 .currencyPair {
@@ -8,16 +9,19 @@ $headerColor: #5b5b5b;
 
 .content {
   align-content: baseline;
+  background-color: $currencyPairBackground;
   display: flex;
   flex-direction: row;
   justify-content: stretch;
   padding: 0.5em;
 
   > * {
+    flex-basis: 50%;
     flex-grow: 1;
   }
 
-  :nth-child(2) {
+  > div:nth-child(2) {
+    flex-basis: 0;
     flex-grow: 0;
     margin: 0 0.3em;
   }
