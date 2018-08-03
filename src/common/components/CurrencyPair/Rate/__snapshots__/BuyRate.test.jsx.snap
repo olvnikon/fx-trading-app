@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BuyRate should match snapshot 1`] = `
+<div>
+  <Rate
+    header="Buy USD"
+    rate={12.345}
+  />
+</div>
+`;

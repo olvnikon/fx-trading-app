@@ -1,2 +1,4 @@
 flow-typed
 src/registerServiceWorker.js
+/src/tests-configuration.js
+__snapshots__

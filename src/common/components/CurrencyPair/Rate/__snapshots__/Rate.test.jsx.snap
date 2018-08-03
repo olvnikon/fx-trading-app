@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rate should match snapshot 1`] = `
+<section>
+  <header>
+    USD
+  </header>
+  <main>
+    <span>
+      <span>
+        12.
+      </span>
+      <span
+        key="0"
+      >
+        34
+      </span>
+      <span
+        key="1"
+      >
+        5
+      </span>
+    </span>
+  </main>
+</section>
+`;

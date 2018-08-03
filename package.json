@@ -26,6 +26,9 @@
   "devDependencies": {
     "babel-eslint": "^8.2.6",
     "cross-env": "^5.2.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "eslint": "^5.2.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-flowtype": "^2.50.0",
@@ -36,5 +39,20 @@
     "flow-bin": "^0.77.0",
     "react-app-rewired": "^1.5.2",
     "sass-loader": "^7.1.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "src",
+      "node_modules"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/src/tests-configuration.js",
+    "collectCoverage": false
   }
 }
