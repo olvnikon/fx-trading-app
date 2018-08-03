@@ -1,0 +1,8 @@
+$columnsNumber: 4;
+
+.home {
+  display: grid;
+  grid-template-columns: repeat($columnsNumber, 1fr);
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+}

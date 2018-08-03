@@ -1,0 +1,38 @@
+@import "../../styles/variables";
+$headerColor: #5b5b5b;
+
+.currencyPair {
+  box-shadow: 0 0 1px 1px $headerColor;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  align-content: baseline;
+  background-color: $currencyPairBackground;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  padding: 0.5em;
+
+  > * {
+    flex-basis: 50%;
+    flex-grow: 1;
+  }
+
+  > div:nth-child(2) {
+    flex-basis: 0;
+    flex-grow: 0;
+    margin: 0 0.3em;
+  }
+}
+
+.header {
+  background-color: $headerColor;
+  color: #fff;
+
+  h3 {
+    margin: 2px;
+    text-align: center;
+  }
+}

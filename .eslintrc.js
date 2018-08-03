@@ -12,7 +12,9 @@ module.exports = {
   },
   "rules": {
     "linebreak-style": "off",
+    "implicit-arrow-linebreak": 0,
     "no-underscore-dangle": ["error", {"allow": ["_id"]}],
+    "react/jsx-one-expression-per-line": 0,
     "flowtype/no-weak-types": [2, {
       "any": false,
       "Object": true,

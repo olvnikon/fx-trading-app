@@ -9,7 +9,7 @@ module.exports = {
     const fileLoader = loaders.oneOf.find(loader => loader.loader && loader.loader.includes('file-loader'));
     fileLoader.exclude.push(/\.scss$/);
 
-    const postCSS = {
+    const postCSSLoader = {
       loader: 'postcss-loader',
       options: {
         ident: 'postcss',
@@ -20,49 +20,23 @@ module.exports = {
       },
     };
 
+    const cssLoader = {
+      loader: 'css-loader',
+      options: {
+        modules: true,
+        localIdentName: '[path][name]__[local]--[hash:base64:5]',
+      },
+    };
+
     config.module.rules.push({
       test: /\.scss$/,
       use: env === 'production'
         ? ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [{
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]',
-            },
-          },
-          postCSS,
-          'sass-loader',
-          ],
+          use: [cssLoader, postCSSLoader, 'sass-loader'],
         })
-        : [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]',
-            },
-          },
-          postCSS,
-          'sass-loader',
-        ],
+        : ['style-loader', cssLoader, postCSSLoader, 'sass-loader'],
     });
-    if (env === 'production') {
-      config.module.rules.push({
-        test: /\.(js|jsx|mjs)$/,
-        include: [
-          /(@tr-elf|@polymer|@webcomponents)/,
-        ],
-        loader: 'babel-loader',
-        options: {
-          babelrc: false,
-          presets: [require.resolve('babel-preset-react-app')],
-          compact: true,
-        },
-      });
-    }
     return config;
   },
   jest: config => ({
