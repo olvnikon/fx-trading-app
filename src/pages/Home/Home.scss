@@ -2,7 +2,19 @@ $columnsNumber: 4;
 
 .home {
   display: grid;
-  grid-template-columns: repeat($columnsNumber, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-column-gap: 1em;
   grid-row-gap: 1em;
+
+  @media only screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media(min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media(min-width: 1600px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
